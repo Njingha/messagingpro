@@ -2,12 +2,14 @@ package com.example.messagingpro.Entity;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "Id_User")
-    private long idUser;
+    private Long Id_User;
     @Column(name = "Pseudo_User")
     private String pseudo ;
     @Column(name = "Prenom_User")
@@ -17,9 +19,7 @@ public class User {
     @Column(name = "Email_User")
     private String emailUser;
     @Column(name = "Password_User")
-
     private String Password_User;
-
     @Column(name = "Image_User")
     private String image_User;
 
@@ -27,11 +27,11 @@ public class User {
     }
 
     public long getIdUser() {
-        return idUser;
+        return Id_User;
     }
 
     public void setIdUser(long idUser) {
-        this.idUser = idUser;
+        this.Id_User = idUser;
     }
 
     public String getPseudo() {
@@ -83,8 +83,8 @@ public class User {
     }
 
 
-    public User(long idUser, String pseudo, String prenomUser, String nomUser, String emailUser, String password_User, String image_User) {
-        this.idUser = idUser;
+    public User(long Id_User, String pseudo, String prenomUser, String nomUser, String emailUser, String password_User, String image_User) {
+        this.Id_User = Id_User;
         this.pseudo = pseudo;
         this.prenomUser = prenomUser;
         this.nomUser = nomUser;
@@ -96,7 +96,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "idUser=" + idUser +
+                "idUser=" + Id_User +
                 ", pseudo='" + pseudo + '\'' +
                 ", prenomUser='" + prenomUser + '\'' +
                 ", nomUser='" + nomUser + '\'' +

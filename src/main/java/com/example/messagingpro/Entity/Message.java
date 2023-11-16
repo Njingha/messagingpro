@@ -2,6 +2,7 @@ package com.example.messagingpro.Entity;
 
 import jakarta.persistence.*;
 
+@Entity
 public class Message {
 
     @Id
@@ -14,8 +15,11 @@ public class Message {
     private String receveurMessage;
 
     @ManyToOne
-    @Column(name = "Id_Conversation")
-    private Conversation Conversation;
+    @JoinColumn(name = "Id_Conversation")
+    private Conversation conversation;
+
+    public Message() {
+    }
 
     public Long getId_Message() {
         return Id_Message;
@@ -42,18 +46,18 @@ public class Message {
     }
 
     public com.example.messagingpro.Entity.Conversation getConversation() {
-        return Conversation;
+        return conversation ;
     }
 
     public void setConversation(com.example.messagingpro.Entity.Conversation conversation) {
-        Conversation = conversation;
+        conversation  = conversation;
     }
 
     public Message(Long id_Message, String envoyeurMessage, String receveurMessage, com.example.messagingpro.Entity.Conversation conversation) {
         Id_Message = id_Message;
         this.envoyeurMessage = envoyeurMessage;
         this.receveurMessage = receveurMessage;
-        Conversation = conversation;
+        conversation  = conversation;
     }
 
     @Override
@@ -62,7 +66,7 @@ public class Message {
                 "Id_Message=" + Id_Message +
                 ", envoyeurMessage='" + envoyeurMessage + '\'' +
                 ", receveurMessage='" + receveurMessage + '\'' +
-                ", Conversation=" + Conversation +
+                ", Conversation=" + conversation +
                 '}';
     }
 }

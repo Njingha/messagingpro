@@ -7,8 +7,8 @@ public class Conversation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Id_Conversation")
-    private long idConversation;
-    @Column(name = "Nom Conversation")
+    private Long idConversation;
+    @Column(name = "Nom_Conversation")
     private String nomConversation;
 
     public Conversation() {
@@ -19,7 +19,7 @@ public class Conversation {
         this.nomConversation = nomConversation;
     }
 
-    public long getIdConversation() {
+    public Long getIdConversation() {
         return idConversation;
     }
 
@@ -39,7 +39,7 @@ public class Conversation {
     public String toString() {
         return "Conversation{" +
                 "idConversation=" + idConversation +
-                ", nomConversation='" + nomConversation + '\'' +
+                ", nomConversation='" + nomConversation +
                 '}';
     }
 }
