@@ -1,8 +1,10 @@
 package com.example.messagingpro.Entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 
 @Entity
+@Builder
 public class Conversation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

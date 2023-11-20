@@ -1,13 +1,15 @@
 package com.example.messagingpro.Entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Builder;
 
 import java.sql.Date;
-import java.util.Set;
 
- //Annotation Lambok qui permet de créer automatiquement les Getters et Setters
+//Annotation Lambok qui permet de créer automatiquement les Getters et Setters
 @Entity
+@Builder
+// au lieu de créer manuellement les getters and setters et aussi les constructeur avec et sans arguments je peux utiliser
+// l'annotation @data(decrepated) pour les gt et st et @AllArgsArguments @NoArgsArguments
 public class MembreDuGroupe {
 
     @Id
@@ -16,7 +18,7 @@ public class MembreDuGroupe {
 
     @ManyToOne
     @JoinColumn(name = "Id_User")
-    private User users;
+    private Users users;
 
     @ManyToOne
     @JoinColumn(name = "Id_Conversation")
@@ -39,12 +41,12 @@ public class MembreDuGroupe {
          this.idAssociation = idAssociation;
      }
 
-     public User getUser() {
+     public Users getUser() {
          return users;
      }
 
-     public void setUser(User user) {
-         this.users = users;
+     public void setUser(Users users) {
+         this.users = this.users;
      }
 
      public Conversation getConversation() {
@@ -71,7 +73,7 @@ public class MembreDuGroupe {
          this.dateAbdiction = dateAbdiction;
      }
 
-     public MembreDuGroupe(Long idAssociation, User users, Conversation conversation, Date dateAjout, Date dateAbdiction) {
+     public MembreDuGroupe(Long idAssociation, Users users, Conversation conversation, Date dateAjout, Date dateAbdiction) {
          this.idAssociation = idAssociation;
          this.users = users;
          this.conversation = conversation;

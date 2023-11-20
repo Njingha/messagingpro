@@ -1,8 +1,11 @@
 package com.example.messagingpro.Entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 
 @Entity
+@Builder // creer des mocks
 public class Message {
 
     @Id
