@@ -1,11 +1,14 @@
 package com.example.messagingpro.Entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 
-import java.util.Set;
 
 @Entity
-public class User {
+@Builder // creer des mocks
+@AllArgsConstructor
+public class Users {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     @Column(name = "Id_User")
@@ -23,7 +26,7 @@ public class User {
     @Column(name = "Image_User")
     private String image_User;
 
-    public User() {
+    public Users() {
     }
 
     public long getIdUser() {
@@ -83,7 +86,7 @@ public class User {
     }
 
 
-    public User(long Id_User, String pseudo, String prenomUser, String nomUser, String emailUser, String password_User, String image_User) {
+    public Users(long Id_User, String pseudo, String prenomUser, String nomUser, String emailUser, String password_User, String image_User) {
         this.Id_User = Id_User;
         this.pseudo = pseudo;
         this.prenomUser = prenomUser;
